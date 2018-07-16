@@ -1,0 +1,23 @@
+<div class="form-control-static">
+  <button class="btn btn-default show-form" (click)="showForm()">Add</button>
+</div>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Vehicle ID</th>
+    <th>Name</th>
+    <th>Model</th>
+    <th>Year</th>
+    <th>Type</th>
+  </tr>
+  <tr class="car-item" *ngFor="let car of cars; index as i" (click)="chooseCar(i)">
+    <td>{{ car.vid }}</td>
+    <td>{{ car.name }}</td>
+    <td>{{ car.model }}</td>
+    <td>{{ car.year }}</td>
+    <td>{{ car.type }}</td>
+  </tr>
+  <tr class="alert alert-info no-car" *ngIf="!cars.length">
+    <td class="text-center" colspan="5">There are no cars yet</td>
+  </tr>
+</table>

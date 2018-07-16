@@ -1,0 +1,75 @@
+<div class="form-control-static text-right">
+  <button class="btn btn-default" (click)="closeComponent()">Close</button>
+</div>
+
+<div class="list-group-item min-height-300">
+  <ul class="nav nav-tabs">
+    <li class="{{activeTab == 0 ? 'active' : '' }}"><a href="" (click)="changeTab(0); false">Home</a></li>
+    <li class="{{activeTab == 1 ? 'active' : '' }}"><a href="" (click)="changeTab(1); false">Profile</a></li>
+  </ul>
+
+  <form class="form-control-static" [formGroup]="mainTab" *ngIf="activeTab === 0" novalidate>
+    <div class="form-group">
+      <label>Name</label>
+      <input class="form-control" formControlName="name" />
+      <div class="alert alert-danger"
+        *ngIf="mainTab.controls['name'].invalid && mainTab.controls['name'].touched">
+        Wrong name
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Model</label>
+      <input class="form-control" formControlName="model" />
+      <div class="alert alert-danger"
+        *ngIf="mainTab.controls['model'].invalid && mainTab.controls['model'].touched">
+        Wrong model
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Type</label>
+      <select class="form-control" formControlName="type">
+        <option *ngFor="let type of carTypes" [value]="type">{{type}}</option>
+      </select>
+      <div class="alert alert-danger"
+        *ngIf="mainTab.controls['type'].invalid && mainTab.controls['type'].touched">
+        Wrong type
+      </div>
+    </div>
+  </form>
+
+  <form [formGroup]="additionalTab" class="form-control-static" novalidate *ngIf="activeTab === 1">
+    <div class="form-group">
+      <label>Vehicle ID</label>
+      <input class="form-control" formControlName="vid" />
+      <div class="alert alert-danger"
+        *ngIf="additionalTab.controls['vid'].invalid && additionalTab.controls['vid'].touched">
+        Wrong vehicle ID
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Year</label>
+      <input class="form-control" formControlName="year" />
+      <div class="alert alert-danger"
+        *ngIf="additionalTab.controls['year'].invalid && additionalTab.controls['year'].touched">
+        Wrong vehicle ID
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="form-control-static text-center">
+  <button
+    class="btn btn-default"
+    [disabled]="mainTab.invalid || additionalTab.invalid"
+    (click)="addCar()"
+    *ngIf="carIndex === null">
+    Add
+  </button>
+  <button
+    class="btn btn-default"
+    [disabled]="mainTab.invalid || additionalTab.invalid"
+    (click)="saveCar()"
+    *ngIf="carIndex !== null">
+    Save
+  </button>
+</div>

@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <app-list
+      [class]="!formDisplayStatus ? 'col-sm-12' : 'col-sm-6'"
+      (formOpen)="formDisplay(true)"
+      (chosenCar)="editCar($event)">
+    </app-list>
+    <app-form
+      class="col-sm-6"
+      [carIndex]="chosenCar"
+      (close)="formDisplay(false)"
+      *ngIf="formDisplayStatus">
+    </app-form>
+  </div>
+</div>
