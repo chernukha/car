@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { CarsBankService } from '../cars-bank.service';
-import { Car } from '../car.model';
+import { Car, AdditionalFieldsInterface, MainFieldsInterface } from '../car.model';
 
 @Component({
   selector: 'app-form',
@@ -12,12 +12,12 @@ import { Car } from '../car.model';
 
 export class FormComponent implements OnInit, OnChanges {
 
-  @Input() carIndex: number | null = null;        // index of car model: null - form for adding car
-  @Output() close = new EventEmitter<boolean>();  // event for closing form
-  activeTab = 0;                                  // index of active tab: 0 - main tab, 1 - additional tab
-  mainTab: FormGroup;                             // FormGrup for main form: name, model, type
-  additionalTab: FormGroup;                       // FormGrup for main form: vid, year
-  carTypes = ['', 'Minivan', 'Sedan', 'Bus'];     // types of car
+  @Input() carIndex: number | null = null;                 // index of car model: null - form for adding car
+  @Output() close = new EventEmitter<boolean>();           // event for closing form
+  activeTab = 0;                                           // index of active tab: 0 - main tab, 1 - additional tab
+  mainTab: FormGroup;                                      // FormGroup for main form: name, model, type
+  additionalTab: FormGroup;                                // FormGroup for main form: vid, year
+  readonly carTypes = ['', 'Minivan', 'Sedan', 'Bus'];     // types of car
 
   constructor(private carBankService: CarsBankService) { }
 
@@ -42,7 +42,7 @@ export class FormComponent implements OnInit, OnChanges {
       ]),
       'year': new FormControl('', [
         Validators.required,
-        Validators.pattern('[0-9]{4}')
+        Validators.pattern('19[0-9][0-9]|20[0-2][0-9]')
       ]),
     });
 

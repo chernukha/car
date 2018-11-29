@@ -14,9 +14,9 @@ export class Car {
   }
 
   /**
-   * It returns Object for additional form (FormComponent)
+   * It returns AdditionalFieldsInterface for additional form (FormComponent)
    */
-  get additional(): Object {
+  get additional(): AdditionalFieldsInterface {
     return {
       vid: this.vid,
       year: this.year
@@ -24,9 +24,9 @@ export class Car {
   }
 
   /**
-   * It returns Object for main form (FormComponent)
+   * It returns MainFieldsInterface for main form (FormComponent)
    */
-  get main(): Object {
+  get main(): MainFieldsInterface {
     return {
       name: this.name,
       model: this.model,
@@ -34,4 +34,15 @@ export class Car {
     };
   }
 
+}
+
+export interface AdditionalFieldsInterface {
+  vid: string;
+  year: number | null;
+}
+
+export interface MainFieldsInterface {
+  name: string;
+  model: string;
+  type: string;
 }
