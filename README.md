@@ -40,7 +40,7 @@ Run `npx webpack-bundle-analyzer {{path}}` - ex. `npx webpack-bundle-analyzer di
 
 
 ## dist/...
-carsIVY, carsVE - with vendor	 
+carsIVY, carsVE - with vendor  
 carsIVYstats, carsVEstats - with vendor and stats  
 carsIVYstatsNoV, carsVEstatsNoV - with stats and without vendor  
 	
