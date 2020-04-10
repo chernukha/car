@@ -6,13 +6,13 @@ Angular CLI: 9.1.1
 Node: 12.13.0  
 OS: darwin x64  
 
-####Angular: 9.1.1  
+#### Angular: 9.1.1  
 ... animations, cli, common, compiler, compiler-cli, core, forms  
 ... language-service, platform-browser, platform-browser-dynamic  
 ... router  
 Ivy Workspace: Yes  
 
-####Package  Version
+#### Package  Version
 @angular-devkit/architect  0.901.1  
 @angular-devkit/build-angular  0.901.1  
 @angular-devkit/build-optimizer  0.901.1  
