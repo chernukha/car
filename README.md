@@ -37,3 +37,11 @@ Run `ng build --prod --stats-json` to build the project with stats. The build ar
 ## Bundle Analyzer 
 
 Run `npx webpack-bundle-analyzer {{path}}` - ex. `npx webpack-bundle-analyzer dist/cars/stats-es2015.json`
+
+
+## dist/...
+carsIVY, carsVE - with vendor	 
+carsIVYstats, carsVEstats - with vendor and stats  
+carsIVYstatsNoV, carsVEstatsNoV - with stats and without vendor  
+	
+
